@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # Person is a superclass
 class Person
   def initialize(age, name = 'Unknown', parent_permission: true)

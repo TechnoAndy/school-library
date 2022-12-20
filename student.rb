@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 require './person'
 
 # Student class inherits from Person
@@ -10,6 +8,6 @@ class Student < Person
   end
 
   def play_hooky
-    "¯\(ツ)/¯"
+    '¯\(ツ)/¯'
   end
 end
