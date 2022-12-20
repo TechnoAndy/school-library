@@ -2,8 +2,8 @@ require './person'
 
 # Student class inherits from Person
 class Student < Person
-  def initialize(classroom)
-    super()
+  def initialize(age, classroom, name = "Unknown", parent_permission = true)
+    super(age, name = 'Unknown', parent_permission: true)
     @classroom = classroom
   end
 
