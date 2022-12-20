@@ -1,7 +1,7 @@
 # Person is a superclass
 class Person
   def initialize(age, name = 'Unknown', parent_permission: true)
-    @id = Math.rand(0, 1000)
+    @id = Math.rand(1, 1000)
     @name = name
     @age = age
     @parent_permission = parent_permission
