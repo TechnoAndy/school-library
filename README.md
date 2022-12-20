@@ -17,6 +17,7 @@
   - [Setup](#setup)
   - [Available Scripts](#available-scripts)
 - [👥 Authors](#author)
+- [🔭 Future Features](#future-features)
 - [🤝 Contributing](#contributing)
 - [🙏 Acknowledgements](#acknowledgments)
 - [📝 License](#license)
@@ -77,6 +78,9 @@ In the project directory, you can run:
 - Twitter: [@ouass_amine](https://twitter.com/ouass_amine)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/amine-ouassef-314686214/)
 
+## Future Feature
+
+- **_Coming soon!_**
 
 ## Contributing 
 
