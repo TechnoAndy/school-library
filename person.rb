@@ -28,8 +28,6 @@ class Person < Nameable
     false
   end
   # rubocop:enable Naming/PredicateName
-
-  
 end
 
 person = Person.new(22, 'maximilianus')
