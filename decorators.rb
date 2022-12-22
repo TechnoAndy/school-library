@@ -5,6 +5,8 @@ class Nameable
 end
 
 class BaseDecorator < Nameable
+  attr_accessor :nameable
+  
   def initialize(nameable)
     super()
     @nameable = nameable
@@ -14,8 +16,6 @@ class BaseDecorator < Nameable
     @nameable.correct_name
   end
 end
-
-attr_accessor :nameable
 
 class CapitalizeDecorator < BaseDecorator
   def correct_name
