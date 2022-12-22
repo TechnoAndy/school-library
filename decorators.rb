@@ -15,8 +15,21 @@ class BaseDecorator < Nameable
 end
 
 class CapitalizeDecorator < BaseDecorator
+  def initialize(nameable)
+    super(nameable)
+  end
+
   def correct_name
     @nameable.correct_name.capitalize
   end
 end
 
+class TrimmerDecorator < BaseDecorator
+  def initialize(nameable)
+    super(nameable)
+  end
+
+  def correct_name
+    @nameable.correct_name.slice!(0..9)
+  end
+end
