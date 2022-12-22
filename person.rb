@@ -1,7 +1,10 @@
+require './decorators'
+
 # Person is a superclass
-class Person
+class Person < Nameable
   def initialize(age, name = 'Unknown', parent_permission: true)
-    @id = Math.rand(1, 1000)
+    super()
+    @id = Random.rand(1..1000)
     @name = name
     @age = age
     @parent_permission = parent_permission
@@ -11,6 +14,10 @@ class Person
 
   def can_use_services?
     is_of_age? || @parent_permission
+  end
+
+  def correct_name
+    @name
   end
 
   private
@@ -23,3 +30,10 @@ class Person
   end
   # rubocop:enable Naming/PredicateName
 end
+
+person = Person.new(22, 'maximilianus')
+p person.correct_name
+capitalized_person = CapitalizeDecorator.new(person)
+p capitalized_person.correct_name
+capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
+p capitalized_trimmed_person.correct_name
