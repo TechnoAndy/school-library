@@ -1,5 +1,7 @@
+require './decorators'
+
 # Person is a superclass
-class Person
+class Person < Nameable
   def initialize(age, name = 'Unknown', parent_permission: true)
     @id = Math.rand(1, 1000)
     @name = name
@@ -22,4 +24,8 @@ class Person
     false
   end
   # rubocop:enable Naming/PredicateName
+
+  def correct_name
+    @name
+  end
 end
