@@ -3,6 +3,7 @@ require './decorators'
 # Person is a superclass
 class Person < Nameable
   def initialize(age, name = 'Unknown', parent_permission: true)
+    super()
     @id = Random.rand(1..1000)
     @name = name
     @age = age
@@ -32,7 +33,7 @@ end
 
 person = Person.new(22, 'maximilianus')
 p person.correct_name
-capitalizedPerson = CapitalizeDecorator.new(person)
-p capitalizedPerson.correct_name
-capitalizedTrimmedPerson = TrimmerDecorator.new(capitalizedPerson)
-p capitalizedTrimmedPerson.correct_name
+capitalized_person = CapitalizeDecorator.new(person)
+p capitalized_person.correct_name
+capitalized_trimmed_person = TrimmerDecorator.new(capitalizedPerson)
+p capitalized_trimmed_person.correct_name
