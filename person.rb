@@ -1,6 +1,5 @@
 require './decorators'
 
-# Person is a superclass
 class Person < Nameable
   def initialize(age, name = 'Unknown', parent_permission: true)
     super()
