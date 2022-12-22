@@ -1,12 +1,18 @@
 require './decorators'
+require './classroom'
+require './book'
+require './rental'
 
 class Person < Nameable
+  attr_accessor :rentals
+
   def initialize(age, name = 'Unknown', parent_permission: true)
     super()
     @id = Random.rand(1..1000)
     @name = name
     @age = age
     @parent_permission = parent_permission
+    @rentals = []
   end
   attr_accessor :name, :age
   attr_reader :id
@@ -36,3 +42,6 @@ capitalized_person = CapitalizeDecorator.new(person)
 p capitalized_person.correct_name
 capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
 p capitalized_trimmed_person.correct_name
+
+book = Book.new('New Age', 'Lilith Wilson')
+rental = Rental.new('20-05-2018', book, person)
