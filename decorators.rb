@@ -15,6 +15,8 @@ class BaseDecorator < Nameable
   end
 end
 
+attr_accessor :nameable
+
 class CapitalizeDecorator < BaseDecorator
   def correct_name
     @nameable.correct_name.capitalize
