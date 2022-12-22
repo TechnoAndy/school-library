@@ -4,7 +4,8 @@ require './book'
 require './rental'
 
 class Person < Nameable
-  attr_accessor :rentals
+  attr_accessor :name, :age, :rentals
+  attr_reader :id
 
   def initialize(age, name = 'Unknown', parent_permission: true)
     super()
@@ -14,8 +15,6 @@ class Person < Nameable
     @parent_permission = parent_permission
     @rentals = []
   end
-  attr_accessor :name, :age
-  attr_reader :id
 
   def can_use_services?
     is_of_age? || @parent_permission
@@ -45,3 +44,4 @@ p capitalized_trimmed_person.correct_name
 
 book = Book.new('New Age', 'Lilith Wilson')
 rental = Rental.new('20-05-2018', book, person)
+p rental.book.title
