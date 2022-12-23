@@ -24,7 +24,7 @@ class App
       elsif @people[index].instance_of? Student
         label = "[Student]"
       end
-      puts "#{index} => #{label}:  Name: #{@people[index].name}  |  Age: #{@people[index].age}"  
+      puts "#{index} => #{label}:  Name: #{@people[index].name}  |  Age: #{@people[index].age} | Id: #{@people[index].id}"  
     end
   end
 
@@ -46,8 +46,14 @@ class App
   def create_rental(date, book_index, person_index)
     book = @books[book_index.to_i]
     person = @people[person_index.to_i]
-    rental = Rental.new(date, book, person)
-    @rentals << rental
-    p @rentals
+    @rentals << Rental.new(date, book, person)
+  end
+
+  def list_rentals(person_id)
+    @rentals.each do |rental|
+      if rental.person.id == person_id
+        puts "Date: #{rental.date}, Book \"#{rental.book.title}\" By #{rental.book.author}"
+      end
+    end
   end
 end

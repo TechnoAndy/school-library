@@ -48,6 +48,9 @@ def main
         print "What is the specialization of the teacher? "
         spec_input = gets.chomp
         app.create_person(age_input, name_input, type_input, nil, spec_input)
+      else
+        puts "Please Enter a Valid option"
+        launch_app(message, app)
       end
       
       puts "Person Created Successfully"
@@ -72,7 +75,11 @@ def main
       app.create_rental(input_date, input_book_index, input_renter_index)
       launch_app(message, app)
     when "6"
-      print "under contruction"
+      # app.list_people
+      print "Enter the ID of the person: "
+      input_id = gets.chomp
+      app.list_rentals(input_id.to_i)
+      launch_app(message, app)
     when "7"
       puts "Exiting...."
       exit
