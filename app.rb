@@ -6,8 +6,8 @@ require './rental'
 class App
   def initialize
     @books = []
-    @teachers = []
-    @students = []
+    @people = []
+    @rentals = []
   end
 
   def list_books
@@ -17,22 +17,24 @@ class App
   end
 
   def list_people
-    @teachers.each_index do |index| 
-      puts "Teachers:  #{index} => Name: #{@teachers[index].name}  |  Age: #{@teachers[index].age}"  
-    end
-    @students.each_index do |index| 
-      puts "Students:  #{index} => Name: #{@students[index].name}  |  Age: #{@students[index].age}"
+    label = nil
+    @people.each_index do |index| 
+      if @people[index].instance_of? Teacher
+        label = "[Teacher]"
+      elsif @people[index].instance_of? Student
+        label = "[Student]"
+      end
+      puts "#{index} => #{label}:  Name: #{@people[index].name}  |  Age: #{@people[index].age}"  
     end
   end
 
   def create_person(age, name, type, permission = nil, spec = nil)
     if type == "1"
       person = Student.new(age, name, permission)
-      @students << person
-      puts @students
+      @people << person
     elsif type == "2"
       person = Teacher.new(age, name, spec)
-      @teachers << person
+      @people << person
     end
   end
 
@@ -41,8 +43,5 @@ class App
     @books << book
   end
 
-  def create_rental(date, book, person)
-    rental = Rental.new(date, book, person)
-    print rental.book.title
-  end
+  
 end

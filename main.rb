@@ -32,16 +32,20 @@ def main
       age_input = gets.chomp
 
       if type_input == "1"
-        print "Does the student have their parent's permission? [Y/N]"
-        permission_input = gets.chomp
+        print "Does the student have their parent's permission? [Y/N] "
+        permission_input = gets.chomp.upcase
+
         if permission_input == "Y"
           app.create_person(age_input, name_input, type_input, true)
-        elsif
+        elsif permission_input == "N"
           app.create_person(age_input, name_input, type_input, false)
+        else
+          puts "Please Enter a Valid option"
+          exit
         end
 
       elsif type_input == "2"
-        print "What is the specialization of the teacher?"
+        print "What is the specialization of the teacher? "
         spec_input = gets.chomp
         app.create_person(age_input, name_input, type_input, nil, spec_input)
       end
@@ -57,16 +61,10 @@ def main
       puts "Book Created Successfully"
       launch_app(message, app)
     when "5"
-      print "Enter the rented book's title: " 
-      btitle_input = gets.chomp
-      print "Enter the book's author: " 
-      bauthor_input = gets.chomp
-      app.create_book(btitle_input, bauthor_input)
-      puts "Book Created Successfully"
+      print "under contruction"
       launch_app(message, app)
     when "6"
-      print "cool!"
-      launch_app(message, app)
+      print "under contruction"
     when "7"
       puts "Exiting...."
       exit
