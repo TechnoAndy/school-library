@@ -9,9 +9,9 @@ class Main
   def check_permission_input(permission_input)
     case permission_input
     when 'Y'
-     true
+      true
     when 'N'
-     false
+      false
     else
       puts 'Please Enter a Valid option'
       exit
@@ -95,10 +95,6 @@ class Main
     when '7'
       puts 'Exiting....'
       exit
-    else
-      puts 'Please Enter a Valid option'
-      launch
-    end
   end
 end
 
