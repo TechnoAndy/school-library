@@ -12,6 +12,6 @@ class Student < Person
 
   def classroom=(classroom)
     @classroom = classroom
-    classroom.students << self 
+    classroom.students << self
   end
 end
