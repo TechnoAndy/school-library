@@ -95,6 +95,7 @@ class Main
     when '7'
       puts 'Exiting....'
       exit
+    end
   end
 end
 
