@@ -61,7 +61,15 @@ def main
       puts "Book Created Successfully"
       launch_app(message, app)
     when "5"
-      print "under contruction"
+      app.list_books
+      print "Please pick one of the available books: "
+      input_book_index = gets.chomp
+      app.list_people
+      print "Please define the person renting the book: "
+      input_renter_index = gets.chomp
+      print "Please enter the rental date [yyyy-mm-dd]:  "
+      input_date = gets.chomp
+      app.create_rental(input_date, input_book_index, input_renter_index)
       launch_app(message, app)
     when "6"
       print "under contruction"

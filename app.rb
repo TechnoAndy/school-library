@@ -43,5 +43,11 @@ class App
     @books << book
   end
 
-  
+  def create_rental(date, book_index, person_index)
+    book = @books[book_index.to_i]
+    person = @people[person_index.to_i]
+    rental = Rental.new(date, book, person)
+    @rentals << rental
+    p @rentals
+  end
 end
