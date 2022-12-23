@@ -26,7 +26,8 @@ class App
       elsif @people[index].instance_of? Student
         label = '[Student]'
       end
-      puts "#{index} => #{label}:  Name: #{@people[index].name}  |  Age: #{@people[index].age} | Id: #{@people[index].id}"
+      puts "#{index} => #{label}:  Name: #{@people[index].name}\
+  |  Age: #{@people[index].age} | Id: #{@people[index].id}"
     end
   end
 

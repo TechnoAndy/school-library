@@ -1,9 +1,7 @@
-# frozen_string_literal: true
-
 require './person'
 
 class Student < Person
-  def initialize(age, name = 'Unknown', parent_permission)
+  def initialize(age, name, parent_permission)
     super(age, name, parent_permission)
     @classroom = nil
   end
