@@ -33,7 +33,12 @@ def main
       puts "Person Created Successfully"
       launch_app(message)
     when "4"
-      print "cool!"
+      print "Enter the book's title: " 
+      btitle_input = gets.chomp
+      print "Enter the book's author: " 
+      bauthor_input = gets.chomp
+      app.create_book(btitle_input, bauthor_input)
+      puts "Book Created Successfully"
       launch_app(message)
     when "5"
       print "cool!"
