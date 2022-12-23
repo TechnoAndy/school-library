@@ -35,6 +35,38 @@ class Main
     end
   end
 
+  def handle_person
+    print 'Do you want to create a (1) student OR a (2) teacher: '
+    type_input = gets.chomp
+    print 'Enter the person name: '
+    name_input = gets.chomp
+    print 'Enter the person age: '
+    age_input = gets.chomp
+    create_person_by_type(age_input, name_input, type_input)
+    puts 'Person Created Successfully'
+  end
+
+  def handle_book
+    print "Enter the book's title: "
+    btitle_input = gets.chomp
+    print "Enter the book's author: "
+    bauthor_input = gets.chomp
+    @app.create_book(btitle_input, bauthor_input)
+    puts 'Book Created Successfully'
+  end
+
+  def handle_rental
+    @app.list_books
+    print 'Please pick one of the available books: '
+    input_book_index = gets.chomp
+    @app.list_people
+    print 'Please define the person renting the book: '
+    input_renter_index = gets.chomp
+    print 'Please enter the rental date [yyyy-mm-dd]:  '
+    input_date = gets.chomp
+    @app.create_rental(input_date, input_book_index, input_renter_index)
+  end
+
   def launch
     puts @message
     input = gets.chomp
@@ -47,33 +79,13 @@ class Main
       @app.list_people
       launch
     when '3'
-      print 'Do you want to create a (1) student OR a (2) teacher: '
-      type_input = gets.chomp
-      print 'Enter the person name: '
-      name_input = gets.chomp
-      print 'Enter the person age: '
-      age_input = gets.chomp
-      create_person_by_type(age_input, name_input, type_input)
-      puts 'Person Created Successfully'
+      handle_person
       launch
     when '4'
-      print "Enter the book's title: "
-      btitle_input = gets.chomp
-      print "Enter the book's author: "
-      bauthor_input = gets.chomp
-      @app.create_book(btitle_input, bauthor_input)
-      puts 'Book Created Successfully'
+      handle_book
       launch
     when '5'
-      @app.list_books
-      print 'Please pick one of the available books: '
-      input_book_index = gets.chomp
-      @app.list_people
-      print 'Please define the person renting the book: '
-      input_renter_index = gets.chomp
-      print 'Please enter the rental date [yyyy-mm-dd]:  '
-      input_date = gets.chomp
-      @app.create_rental(input_date, input_book_index, input_renter_index)
+      handle_rental
       launch
     when '6'
       print 'Enter the ID of the person: '
