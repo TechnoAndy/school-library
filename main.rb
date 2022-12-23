@@ -9,12 +9,29 @@ class Main
   def check_permission_input(permission_input)
     case permission_input
     when 'Y'
-      return true
+     true
     when 'N'
-      return false
+     false
     else
       puts 'Please Enter a Valid option'
       exit
+    end
+  end
+
+  def create_person_by_type(age_input, name_input, type_input)
+    case type_input
+    when '1'
+      print "Does the student have their parent's permission? [Y/N] "
+      permission_input = gets.chomp.upcase
+      permission = check_permission_input(permission_input)
+      @app.create_person(age_input, name_input, type_input, permission)
+    when '2'
+      print 'What is the specialization of the teacher? '
+      spec_input = gets.chomp
+      @app.create_person(age_input, name_input, type_input, nil, spec_input)
+    else
+      puts 'Please Enter a Valid option'
+      launch
     end
   end
 
@@ -36,22 +53,7 @@ class Main
       name_input = gets.chomp
       print 'Enter the person age: '
       age_input = gets.chomp
-  
-      case type_input
-      when '1'
-        print "Does the student have their parent's permission? [Y/N] "
-        permission_input = gets.chomp.upcase
-        permission = check_permission_input(permission_input)
-        @app.create_person(age_input, name_input, type_input, permission)
-      when '2'
-        print 'What is the specialization of the teacher? '
-        spec_input = gets.chomp
-        @app.create_person(age_input, name_input, type_input, nil, spec_input)
-      else
-        puts 'Please Enter a Valid option'
-        launch
-      end
-  
+      create_person_by_type(age_input, name_input, type_input)
       puts 'Person Created Successfully'
       launch
     when '4'
@@ -86,7 +88,6 @@ class Main
       launch
     end
   end
-
 end
 
 def main
