@@ -66,7 +66,7 @@ class Main
     input_date = gets.chomp
     @app.create_rental(input_date, input_book_index, input_renter_index)
   end
-
+# rubocop:disable Metrics/CyclomaticComplexity Metrics/MethodLength
   def launch
     puts @message
     input = gets.chomp
@@ -98,7 +98,7 @@ class Main
     end
   end
 end
-
+# rubocop:enable Metrics/CyclomaticComplexity Metrics/MethodLength
 def main
   welcome_message = "\n################################\nWelcome to School Library App! \n\n
   Please choose an option to proceed:\n
