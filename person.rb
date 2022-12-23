@@ -1,6 +1,4 @@
 require './decorators'
-require './classroom'
-require './book'
 require './rental'
 
 class Person < Nameable
@@ -37,14 +35,3 @@ class Person < Nameable
   end
   # rubocop:enable Naming/PredicateName
 end
-
-person = Person.new(22, 'maximilianus')
-p person.correct_name
-capitalized_person = CapitalizeDecorator.new(person)
-p capitalized_person.correct_name
-capitalized_trimmed_person = TrimmerDecorator.new(capitalized_person)
-p capitalized_trimmed_person.correct_name
-
-book = Book.new('New Age', 'Lilith Wilson')
-rental = Rental.new('20-05-2018', book, person)
-p rental.book.title
