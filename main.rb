@@ -21,14 +21,31 @@ def main
       app.list_books
       launch_app(message, app)
     when "2"
-      print "cool!"
+      app.list_people
       launch_app(message, app)
     when "3"
+      print "Do you want to create a (1) student OR a (2) teacher: "
+      type_input = gets.chomp
       print "Enter the person name: " 
       name_input = gets.chomp
       print "Enter the person age: " 
       age_input = gets.chomp
-      app.create_person(age_input, name_input)
+
+      if type_input == "1"
+        print "Does the student have their parent's permission? [Y/N]"
+        permission_input = gets.chomp
+        if permission_input == "Y"
+          app.create_person(age_input, name_input, type_input, true)
+        elsif
+          app.create_person(age_input, name_input, type_input, false)
+        end
+
+      elsif type_input == "2"
+        print "What is the specialization of the teacher?"
+        spec_input = gets.chomp
+        app.create_person(age_input, name_input, type_input, nil, spec_input)
+      end
+      
       puts "Person Created Successfully"
       launch_app(message, app)
     when "4"
