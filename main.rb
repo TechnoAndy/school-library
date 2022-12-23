@@ -67,7 +67,7 @@ class Main
     @app.create_rental(input_date, input_book_index, input_renter_index)
   end
 
-# rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
+  # rubocop:disable Metrics/CyclomaticComplexity, Metrics/MethodLength
   def launch
     puts @message
     input = gets.chomp
