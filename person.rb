@@ -1,5 +1,5 @@
 require './decorators'
-require './book'
+require './classroom'
 require './rental'
 
 class Person < Nameable
