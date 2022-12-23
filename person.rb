@@ -1,5 +1,4 @@
 require './decorators'
-require './classroom'
 require './book'
 require './rental'
 
